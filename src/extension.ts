@@ -1,8 +1,12 @@
 import * as vscode from 'vscode';
 
+import { View } from './View';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
+    /**
+     * 注册命令
+     */
     vscode.commands.registerCommand('extension.blog', () => {
       // Create and show panel
       const panel = vscode.window.createWebviewPanel(
@@ -13,12 +17,23 @@ export function activate(context: vscode.ExtensionContext) {
       );
 
       // And set its HTML content
-    panel.webview.html = getWebviewContent();
-   
-    
+      panel.webview.html = getWebviewContent();
+
+
+
+    }),
+    vscode.commands.registerCommand('extension.login', async () => {
+        View.login();
+    }),
+    vscode.commands.registerCommand("extension.blog_list",async() =>{
+
+      View.blogList();
     })
+
   );
 }
+
+
 
 function getWebviewContent() {
   return `<!DOCTYPE html>
@@ -44,5 +59,16 @@ function getWebviewContent() {
 
 </body>
 </html>`;
+
+}
+
+
+/**
+ * 当扩展被停用时执行该方法
+ */
+export function deactivate() {
+
+  vscode.window.showInformationMessage(vscode.extensions.getExtension.name + "扩展已停用");
+
 
 }

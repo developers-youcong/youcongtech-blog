@@ -2,7 +2,7 @@
 	"name": "youcongtech-blog",
 	"displayName": "youcongtech-blog",
 	"description": "youcongtech-blog",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "youcongtech",
 	"repository": {
 	 "type": "git",
@@ -16,7 +16,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.blog"
+		"onCommand:extension.blog",
+		"onCommand:extension.login",
+		"onCommand:extension.blog_list"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -24,8 +26,22 @@
 			{
 				"command": "extension.blog",
 				"title": "YC Blog"
+			},{
+
+				"command": "extension.login",
+				"title": "Login"
+			},{
+				"command": "extension.blog_list",
+				"title": "Get Blog Post"
 			}
-		]
+		],
+		"themes": [
+            {
+                "label": "youcongtech-blog-theme",
+                "uiTheme": "vs-dark",
+                "path": "./themes/extension-theme.json"
+            }
+        ]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
