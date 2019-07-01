@@ -26,13 +26,6 @@
 			{
 				"command": "extension.blog",
 				"title": "YC Blog"
-			},{
-
-				"command": "extension.login",
-				"title": "Login"
-			},{
-				"command": "extension.blog_list",
-				"title": "Get Blog Post"
 			}
 		],
 		"themes": [

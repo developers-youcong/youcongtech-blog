@@ -1,7 +1,5 @@
 import * as vscode from 'vscode';
 
-import { View } from './View';
-
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     /**
@@ -19,15 +17,6 @@ export function activate(context: vscode.ExtensionContext) {
       // And set its HTML content
       panel.webview.html = getWebviewContent();
 
-
-
-    }),
-    vscode.commands.registerCommand('extension.login', async () => {
-        View.login();
-    }),
-    vscode.commands.registerCommand("extension.blog_list",async() =>{
-
-      View.blogList();
     })
 
   );
