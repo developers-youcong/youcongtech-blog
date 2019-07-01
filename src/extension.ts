@@ -1,6 +1,10 @@
 import * as vscode from 'vscode';
 
+import {View} from './View';
+
 export function activate(context: vscode.ExtensionContext) {
+ 
+
   context.subscriptions.push(
     /**
      * 注册命令
@@ -17,7 +21,15 @@ export function activate(context: vscode.ExtensionContext) {
       // And set its HTML content
       panel.webview.html = getWebviewContent();
 
-    })
+    }),vscode.commands.registerCommand('extension.website', () => {
+
+        View.showProgramLearningWebSite();
+
+    }),vscode.commands.registerCommand('extension.remind', () => {
+
+        View.remind();
+
+  })
 
   );
 }

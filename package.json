@@ -17,8 +17,8 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.blog",
-		"onCommand:extension.login",
-		"onCommand:extension.blog_list"
+		"onCommand:extension.website",
+		"onCommand:extension.remind"	
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -26,6 +26,13 @@
 			{
 				"command": "extension.blog",
 				"title": "YC Blog"
+			},
+			{
+				"command": "extension.website",
+				"title": "编程学习网站"
+			},{
+				"command": "extension.remind",
+				"title": "超越妹妹"
 			}
 		],
 		"themes": [
