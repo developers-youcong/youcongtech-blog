@@ -2,7 +2,7 @@
 	"name": "youcongtech-blog",
 	"displayName": "youcongtech-blog",
 	"description": "youcongtech-blog",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "youcongtech",
 	"repository": {
 	 "type": "git",
@@ -18,7 +18,8 @@
 	"activationEvents": [
 		"onCommand:extension.blog",
 		"onCommand:extension.website",
-		"onCommand:extension.remind"	
+		"onCommand:extension.remind",
+		"onCommand:extension.default.post"	
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -33,6 +34,9 @@
 			},{
 				"command": "extension.remind",
 				"title": "超越妹妹"
+			},{
+				"command": "extension.default.post",
+				"title": "博客文章"
 			}
 		],
 		"themes": [

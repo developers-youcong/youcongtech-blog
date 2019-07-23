@@ -3,6 +3,62 @@ import * as vscode from 'vscode';
 export class View {
 
 
+
+  public static defaultShowBlogPost():void{
+
+    const panel = vscode.window.createWebviewPanel(
+      '我的博客最新文章',
+      '我的博客最新文章',
+      vscode.ViewColumn.Two,
+      {}
+    );
+
+    // And set its HTML content
+    panel.webview.html = getWebviewContent();
+
+
+    function getWebviewContent() {
+      return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>博客文章</title>
+    </head>
+    <body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      var blogApi = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x79\x6f\x75\x63\x6f\x6e\x67\x74\x65\x63\x68\x2e\x63\x6f\x6d\x2f\x62\x6c\x6f\x67\x2d\x77\x65\x62";
+      
+      $.ajax({
+        type: "GET",
+        url: blogApi+"/posts/blog_list",
+        dataType: "json",
+        success: function (data) {
+            
+            var result=data.data.toString().split(",");
+            for(var i=0;i<result.length;i++){
+            document.write(result[i]+"<br/>");
+            }
+            
+          
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          console.log("-------------STATUS-----------------:" + XMLHttpRequest.status);
+          console.log(XMLHttpRequest.readyState);
+          console.log(textStatus);
+        },
+        complete: function (XMLHttpRequest, status) {
+        }
+      });
+    
+    </script>
+    
+    </body>
+    </html>`;
+    
+    }
+  }
  
    public static showProgramLearningWebSite():void{
 

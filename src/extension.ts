@@ -29,8 +29,11 @@ export function activate(context: vscode.ExtensionContext) {
 
         View.remind();
 
-  })
+  }),vscode.commands.registerCommand('extension.default.post', () => {
 
+    View.defaultShowBlogPost();
+
+})
   );
 }
 
